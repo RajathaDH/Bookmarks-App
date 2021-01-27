@@ -12,7 +12,15 @@
 <body>
     <div class="container">
         <h1>Bookmarks</h1>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBookmark">Add Bookmark</button>
+
+        <form>
+            <div class="mb-3">
+                <label for="url" class="form-label">Search</label>
+                <input type="text" name="search" id="search" class="form-control">
+            </div>
+        </form>
+
+        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addBookmark">Add Bookmark</button>
         <div id="addBookmark" class="modal fade" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -28,7 +36,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" name="name" id="name" class="form-control">
+                                <input type="text" name="name" id="name" class="form-control" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Save Bookmark</button>
                         </form>
@@ -39,8 +47,28 @@
                 </div>
             </div>
         </div>
-        
-        <div class="bookmarks"></div>
+
+        <div id="bookmarks" class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Site name</h5>
+                        <p class="card-text">Site link</p>
+                        <a href="" class="btn btn-primary">Go</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Site name</h5>
+                        <p class="card-text">Site link</p>
+                        <a href="" class="btn btn-primary">Go</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
