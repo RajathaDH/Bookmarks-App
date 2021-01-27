@@ -4,7 +4,8 @@
   "description": "A bookmarks application to store websites",
   "main": "server.js",
   "scripts": {
-    "start": "node server"
+    "start": "node server",
+    "dev": "nodemon server"
   },
   "repository": {
     "type": "git",
