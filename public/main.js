@@ -1,21 +1,38 @@
 const bookmarksDiv = document.getElementById('bookmarks');
 const bookmarkForm = document.getElementById('bookmarkForm');
 const bookmarkModal = document.getElementById('addBookmark');
+const search = document.getElementById('search');
+
+let bookmarks = [];
 
 bookmarkForm.addEventListener('submit', e => {
     e.preventDefault();
 });
+
+search.addEventListener('keyup', e => {
+    outputBookmarksToDOM(e.target.value);
+});
+
+getBookmarks();
 
 async function getBookmarks() {
     const result = await fetch('../bookmarks.json');
 
     const data = await result.json();
 
-    outputBookmarksToDOM(data.bookmarks);
+    bookmarks = data.bookmarks;
+
+    outputBookmarksToDOM();
 }
 
-function outputBookmarksToDOM(bookmarks) {
-    bookmarks.forEach(bookmark => {
+function outputBookmarksToDOM(search = '') {
+    bookmarksDiv.innerHTML = '';
+
+    const filteredBookmarks = bookmarks.filter(bookmark => {
+        return bookmark.name.includes(search) || bookmark.url.includes(search);
+    });
+
+    filteredBookmarks.forEach(bookmark => {
         const outerDiv = document.createElement('div');
         outerDiv.classList.add('col-sm-6');
         outerDiv.classList.add('mb-2');
@@ -52,5 +69,3 @@ function outputBookmarksToDOM(bookmarks) {
         bookmarksDiv.appendChild(outerDiv);
     });
 }
-
-getBookmarks();
