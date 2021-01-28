@@ -1,6 +1,4 @@
 const bookmarksDiv = document.getElementById('bookmarks');
-const bookmarkForm = document.getElementById('bookmarkForm');
-const bookmarkModal = document.getElementById('addBookmark');
 const search = document.getElementById('search');
 
 let bookmarks = [];
@@ -65,26 +63,3 @@ function outputBookmarksToDOM(search = '') {
         bookmarksDiv.appendChild(outerDiv);
     });
 }
-
-/*bookmarkForm.addEventListener('submit', e => {
-    e.preventDefault();
-
-    const url = bookmarkForm.elements.url.value;
-    const name = bookmarkForm.elements.name.value;
-
-    addBookmark(url, name);
-});*/
-
-/*async function addBookmark(url, name) {
-    const newBookmark = {
-        url,
-        name
-    };
-    fetch('http://localhost:5454/new', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newBookmark)
-    });
-}*/

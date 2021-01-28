@@ -5,7 +5,6 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
-//app.use(express.json());
 
 app.get('/', (req, res) => {
     res.json({ message: 'hello' });
@@ -14,8 +13,6 @@ app.get('/', (req, res) => {
 app.post('/new', async (req, res) => {
     const { url, name } = req.body;
 
-    console.log(url);
-
     const newBookmark = {
         url,
         name
@@ -32,25 +29,6 @@ app.post('/new', async (req, res) => {
     res.redirect('/');
 });
 
-const PORT = 5454;
+const PORT = 5454; 
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-/*app.post('/new', async (req, res) => {
-    const { url, name } = req.body;
-
-    const newBookmark = {
-        url,
-        name
-    };
-
-    const fileData = await fs.readFile('public/bookmarks.json', 'utf-8');
-    const jsonData = JSON.parse(fileData);
-    const bookmarks = jsonData.bookmarks;
-
-    bookmarks.push(newBookmark);
-
-    await fs.writeFile('public/bookmarks.json', JSON.stringify(jsonData));
-
-    res.redirect('/');
-});*/
