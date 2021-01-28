@@ -5,10 +5,6 @@ const search = document.getElementById('search');
 
 let bookmarks = [];
 
-bookmarkForm.addEventListener('submit', e => {
-    e.preventDefault();
-});
-
 search.addEventListener('keyup', e => {
     outputBookmarksToDOM(e.target.value);
 });
@@ -16,7 +12,7 @@ search.addEventListener('keyup', e => {
 getBookmarks();
 
 async function getBookmarks() {
-    const result = await fetch('../bookmarks.json');
+    const result = await fetch('./bookmarks.json');
 
     const data = await result.json();
 
@@ -69,3 +65,26 @@ function outputBookmarksToDOM(search = '') {
         bookmarksDiv.appendChild(outerDiv);
     });
 }
+
+/*bookmarkForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const url = bookmarkForm.elements.url.value;
+    const name = bookmarkForm.elements.name.value;
+
+    addBookmark(url, name);
+});*/
+
+/*async function addBookmark(url, name) {
+    const newBookmark = {
+        url,
+        name
+    };
+    fetch('http://localhost:5454/new', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newBookmark)
+    });
+}*/
