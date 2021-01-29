@@ -7,7 +7,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-    res.json({ message: 'hello' });
+    res.json({ message: 'Hello' });
 });
 
 app.post('/new', async (req, res) => {

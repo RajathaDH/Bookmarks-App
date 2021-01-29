@@ -63,3 +63,17 @@ function outputBookmarksToDOM(search = '') {
         bookmarksDiv.appendChild(outerDiv);
     });
 }
+
+/*const bookmarkDiv = `
+    <div class="col-sm-6 mb-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">${bookmark.name}</h5>
+                <p class="card-text">${bookmark.url}</p>
+                <a class="btn btn-primary" href="${bookmark.url}" target="_blank">Go</a>
+            </div>
+        </div>
+    </div>
+`;
+
+bookmarksDiv.innerHTML += bookmarkDiv;*/
