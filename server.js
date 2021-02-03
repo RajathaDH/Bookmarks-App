@@ -24,7 +24,7 @@ app.post('/new', async (req, res) => {
 
     bookmarks.push(newBookmark);
 
-    await fs.writeFile('public/bookmarks.json', JSON.stringify(jsonData));
+    await fs.writeFile('public/bookmarks.json', JSON.stringify(jsonData, null, 4));
 
     res.redirect('/');
 });
